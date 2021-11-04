@@ -16,14 +16,19 @@ function runConcurrent(command, actionOnSuccess, actionOnFailure) {
     });
 }
 
+const buildOnSuccess = () => {
+    console.log("Completada la limpieza de bundles y estilos.\n")
+    runConcurrent('build:dev', runOnSuccess, null)
+}
+
 const runOnSuccess = () => {
     console.log("Completada la compilación de bundles y estilos.\n")
     console.log("---------------------------------------------------\n" +
-                "---      Comenzando despliegue en Webpack       ---\n" +
-                "---     -----------------------------------     ---\n" +
-                "---      Para abrir la app en el navegador      ---\n" +
-                "---      URL: http://localhost:8080             ---\n" +
-                "---------------------------------------------------\n");
+        "---      Comenzando despliegue en Webpack       ---\n" +
+        "---     -----------------------------------     ---\n" +
+        "---      Para abrir la app en el navegador      ---\n" +
+        "---      URL: http://localhost:8080             ---\n" +
+        "---------------------------------------------------\n");
     runConcurrent('serve', null, null)
 }
 
@@ -31,4 +36,4 @@ const runOnFailure = () => {
     console.log("Error al realizar la ejecución en paralelo\n -- Ejecuta el script de nuevo")
 }
 
-runConcurrent("build:dev", runOnSuccess, runOnFailure);
+runConcurrent("clean-dist", buildOnSuccess, runOnFailure);

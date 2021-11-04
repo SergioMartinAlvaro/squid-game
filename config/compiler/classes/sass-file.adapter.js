@@ -1,5 +1,6 @@
 const sass = require('node-sass');
 const fs = require('fs');
+const path = require('path');
 
 module.exports = class SassFileAdapter {
 
@@ -48,7 +49,9 @@ module.exports = class SassFileAdapter {
     }
 
     writeFileByTemplate(css, filePath) {
-        fs.readFile('/home/smartin/Escritorio/FICHEROS/TEST/config/compiler/aux/exampleFile.txt', (err, content) => {
+        console.log("DIRECTORIO")
+        console.log(__dirname);
+        fs.readFile(path.resolve(__dirname, '../aux/exampleFile.txt'), (err, content) => {
             let data = content.toString();
             let fileName = this.getFileName(filePath);
             data = data.replace('#{className}', fileName.replace('-', '').replace('.', ''));
@@ -57,7 +60,7 @@ module.exports = class SassFileAdapter {
 
             let pathToStore = filePath.slice(0, filePath.lastIndexOf('/'));
 
-            fs.writeFile(`${pathToStore}/${fileName}-styles.js`, data, function (err) {
+            fs.writeFile(`${pathToStore}/${fileName}-styles.js`, data, function(err) {
                 if (err) throw err;
                 console.log(`Styles file ${fileName}-styles.js is created successfully from SASS.`);
             });
@@ -71,7 +74,7 @@ module.exports = class SassFileAdapter {
             sass.render({
                 file: scss_fileName,
                 outFile: 'index.css'
-            }, function (error, result) {
+            }, function(error, result) {
                 if (error) {
                     console.log(error);
                 }
