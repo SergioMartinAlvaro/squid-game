@@ -1,0 +1,16 @@
+@import '../../../scss/utils/abstracts';
+
+.header {
+    width: 100%;
+    height: spacing(plus);
+    padding: 0 spacing(normal);
+    box-sizing: border-box;
+    background-color: $main-color;
+    @include flexBox(row, center, left);
+    margin-bottom: spacing(large);
+
+    &__title {
+        font-family: font-type();
+        color: $third-color;
+    }
+}

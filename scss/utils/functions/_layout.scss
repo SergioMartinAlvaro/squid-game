@@ -1,0 +1,52 @@
+@import '../vars/layout';
+
+/** 
+* FUNCION SPACING
+* DESC: Devuelve un tamaño estandar, por defecto son 24px si no se pasan args.
+* IMPL: margin-bottom: spacing(small)
+*/
+@function spacing($size: medium) {
+    @return map-get($sizes, $size);
+}
+
+/**
+* FUNCION FONTS
+* DESC: Devuelve una fuente estandar, por defecto es Lato si no se pasan args.
+* IMPL: font-family: fonts(lato);
+*/
+@function fonts($font: lato) {
+    @return map-get($sizes, $font);
+}
+
+/**
+* FUNCION FONT-TYPES
+* DESC: Devuelve un tipo fuente estandar, por defecto es Lato si no se pasan args.
+* IMPL: font-weight: font-type(title);
+* EXTRA: Rellenar el mapa con tamaños de letra (desconozco cuales son) para estandarizar aun mas
+*/
+@function font-type($type: normal) {
+    @return map-get($sizes, $fontTypes);
+}
+
+/**
+* FUNCION transltate-media-condition
+* DESC: Devuelve una condicion de medio.
+* IMPL: @media 
+*/
+@function translate-media-condition($translate: '') {
+
+    @if $translate == '' {
+        @debug 'La funcion translate-media-condition requiere un valor como argumento';
+    }
+
+    @return map-get($screens, $translate);
+  }
+
+/**
+* FUNCION MEDIA-QUERY
+* DESC: Devuelve una fuente estandar, por defecto es Lato si no se pasan args.
+* IMPL: @include media("retina", "<minWidth");
+*/
+@function devices($device: desktop) {
+    @return map-get($sizes, $device)
+}

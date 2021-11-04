@@ -1,0 +1,50 @@
+$main-color: #006EC1;
+$secondary-color: #009EE5;
+$third-color: #52BCEC;
+$fourth-color: #89D1F3;
+$five-color: #B5E5F9;
+$white-color: #fff;
+$black-color: #000;
+
+$fonts: (
+    lato: 'Lato, sans-serif',
+    merri: 'Merriweather, serif',
+    sans: 'Open Sans, sans-serif'
+);
+
+$fontTypes: (
+    title: 900,
+    subtitle: 700,
+    normal: 400,
+    tiny: 100
+);
+
+$sizes: (
+    tiny: 4px,
+    small: 8px,
+    normal: 16px,
+    medium: 24px,
+    large: 32px,
+    extra: 40px,
+    big: 64px,
+    plus: 96px
+);
+
+$devices: (
+    mobile: 476px,
+    tablet: 768px,
+    desktop: 996px,
+    desktop-xl: 1024px
+);
+
+$screens: (
+    "screen": "only screen",
+    "print": "only print",
+    "retina": "(-webkit-min-device-pixel-ratio: 1.5), (min--moz-device-pixel-ratio: 1.5), (-o-min-device-pixel-ratio: 3/2), (min-device-pixel-ratio: 1.5), (min-resolution: 120dpi)",
+    "plusMaxWidth": "(min-width: #{map-get($devices, desktop-xl) + 1})",
+    "minusMaxWidth": "(max-width: #{map-get($devices, desktop-xl)})", 		
+    "plusDesktopWidth": "(min-width: #{map-get($devices, desktop) + 1})",
+    "minusDesktopWidth": "(max-width: #{map-get($devices, desktop)})",
+    "plusTabletWidth": "(min-width: #{map-get($devices, tablet) + 1})",
+    "minusTabletWidth": "(max-width: #{map-get($devices, tablet)})"
+  );

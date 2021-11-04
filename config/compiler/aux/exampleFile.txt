@@ -1,0 +1,4 @@
+let #{className} = `
+#{cssValue}
+`;
+export default #{className};
