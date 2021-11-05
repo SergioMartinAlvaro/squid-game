@@ -18,6 +18,15 @@ export default class User {
         return this;
     }
 
+    decreaseCurrentPoints() {
+        console.log('Pa abajo')
+        if (this.currentPoints > 0) {
+            this.currentPoints--;
+        }
+
+        return this;
+    }
+
     disconnect() {
         // Sacar de localStorage
         this._storeUser();
@@ -27,6 +36,10 @@ export default class User {
     connect() {
         this.isLogged = true;
         this._setCurrentUser();
+
+        window.EE.on('decreaseCount', () => {
+            this.decreaseCurrentPoints();
+        })
 
         window.EE.on('sumStep', () => {
             this.increaseCurrentPoints();

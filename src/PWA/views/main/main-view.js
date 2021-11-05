@@ -21,7 +21,44 @@ class MainView extends connect(store)(BaseView) {
 
     constructor() {
         super();
+        this.stepRight = false;
+        this.stepLeft = false;
+
+        window.EE.on('changeLight', () => {
+            this.stepRight = false;
+            this.stepLeft = false;
+        })
+
+        window.EE.on('stepLeft', () => {
+            if (!this.stepLeft) {
+                window.EE.emit('handleMovement');
+                this.stepLeft = true;
+                this.stepLeft = this.resetSteps(this.stepLeft);
+            } else {
+                window.EE.emit('decreaseCount');
+            }
+        });
+
+        window.EE.on('stepRight', () => {
+            if (!this.stepRight) {
+                window.EE.emit('handleMovement');
+                this.stepRight = true;
+                this.stepRight = this.resetSteps(this.stepRight);
+            } else {
+                window.EE.emit('decreaseCount');
+            }
+        });
     }
+
+    resetSteps(lastStep) {
+        if (this.stepLeft && this.stepRight) {
+            this.stepRight = !this.stepRight;
+            this.stepLeft = !this.stepLeft;
+            return true;
+        }
+        return lastStep;
+    }
+
 
     render() {
         return html `
@@ -33,12 +70,13 @@ class MainView extends connect(store)(BaseView) {
                     <sm-light></sm-light>
                 </div>
                 <div class="container__buttonWrapper">
-                    <sm-button text='Paso Izquierdo' event='handleMovement'></sm-button>
-                    <sm-button text='Paso Derecho' event='handleMovement'></sm-button>
+                    <sm-button text='Paso Izquierdo' event='stepLeft'></sm-button>
+                    <sm-button text='Paso Derecho' event='stepRight'></sm-button>
                 </div>
             </main>
         `;
     }
 }
+
 
 customElements.define('main-view', MainView)
