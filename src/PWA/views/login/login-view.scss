@@ -1,0 +1,15 @@
+@import '../../../../scss/utils/abstracts';
+
+
+.link {
+    visibility: hidden;
+    display: none;
+}
+
+.loginContainer {
+    margin-top: spacing(plus);
+    width: 380px;
+    height: auto;
+    box-sizing: border-box;
+    margin: auto;
+}

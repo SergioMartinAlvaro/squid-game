@@ -4,4 +4,9 @@ body, html {
     box-sizing: content-box;
     max-width: 100%;
     height: auto;
+    background-color: rgb(82, 188, 236);
+}
+
+nav {
+    visibility: hidden;
 }

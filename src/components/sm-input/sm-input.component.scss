@@ -1,0 +1,18 @@
+@import '../../../scss/utils/abstracts';
+
+.smInput__primary {
+    background: transparent;
+    border: none;
+    margin-bottom: spacing(extra);
+    width: 100%;
+    border-bottom: 4px solid $main-color;
+    padding-bottom: 10px;
+    outline: none;
+    color: white;
+    font-weight: 600;
+    font-size: 20px; 
+}
+
+::placeholder {
+    color: white;
+}

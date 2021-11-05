@@ -28,10 +28,13 @@ class LoginView extends connect(store)(BaseView) {
 
     render() {
         return html `
-            <main class="container">
-                <div class="container__loginWrapper">
-                    <div class="container__inputWrapper">
-                        <a class="main-access" href="/main">Ir al juego</a>
+            <style>
+                ${unsafeCSS(loginview)}
+            </style>
+            <main class="loginContainer">
+                <div class="loginContainer__loginWrapper">
+                    <div class="loginContainer__inputWrapper">
+                        <a class="main-access link" href="/main">Ir al juego</a>
                         <sm-input type="text" placeholder='Introduce un usuario'></sm-input>
                         <sm-button text="Entrar al juego" event="sendForm"></sm-button>
                     </div>

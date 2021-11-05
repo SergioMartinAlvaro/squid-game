@@ -104,11 +104,13 @@ let smbuttoncomponent = `
 */
 .sm__button {
   height: 80px;
-  width: 340px;
+  width: 100%;
+  max-width: 380px;
+  padding: 0 8px;
   border: 4px solid #000;
   background-color: transparent;
   border-radius: 1em;
-  color: #006EC1;
+  color: #3E519F;
   font-size: 20px; }
   .sm__button:hover {
     cursor: pointer; }

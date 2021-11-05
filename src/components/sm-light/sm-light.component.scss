@@ -1,0 +1,54 @@
+@import '../../../scss/utils/abstracts';
+
+.container {
+    width: 100%;
+    height: auto;
+    background-color: $third-color;
+    @include flexBox(column, center, center);
+
+    &__imageWrapper {
+
+    }
+
+    &__image {
+        height: 380px;
+    }
+
+    &__messageWrapper {
+        position: absolute;
+        margin-top: 205px;
+        font-size: 32px;
+        color: white;
+        font-weight: 600;
+    }
+}
+
+
+
+.eyeContainer {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    margin-left: -6px;
+    margin-bottom: 24px;
+    width: 301px;
+    justify-content: space-evenly;
+    position: absolute;
+
+
+    .eye {
+        height: 30px;
+        width: 30px;
+        border-radius: 100%;
+    }
+
+    .eyeOpen {
+        background-color: $main-color;
+        transition: background-color .5s;
+    }
+
+    .eyeClosed {
+        background-color: $white-color;
+        transition: background-color .5s;
+    }
+}

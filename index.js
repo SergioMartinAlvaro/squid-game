@@ -1,4 +1,5 @@
 import './src/PWA/index';
+import './config/EventEmitter/EventEmitter';
 
 import { Router } from '@vaadin/router';
 

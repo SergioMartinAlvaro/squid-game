@@ -23,10 +23,9 @@ module.exports = {
         ]
     },
     plugins: [
-       // new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
             filename: indexOutput,
-            template: indextInput
+            template: 'index.html'
         }),
     ],
     module: {

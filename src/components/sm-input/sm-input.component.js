@@ -28,6 +28,7 @@ export class SmInput extends LitElement {
         super();
         this.placeholder = '';
         this.type = 'text'
+        this.isPrimary = true;
     }
 
     attributeChangedCallback(name, oldVal, newVal) {
@@ -37,7 +38,7 @@ export class SmInput extends LitElement {
     render() {
         return html `
                 <input type="${this.type}" class='${this.class}
-                ${this.isPrimary ? 'smButton__primary' : 'smButton__secondary'}' placeholder="${this.placeholder}" />
+                ${this.isPrimary ? 'smInput__primary' : 'smInput__secondary'}' placeholder="${this.placeholder}" />
         `;
     }
 }

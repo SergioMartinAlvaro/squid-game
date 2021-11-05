@@ -2,7 +2,9 @@
 
 .sm__button {
     height: 80px;
-    width: 340px;
+    width: 100%;
+    max-width: 380px;
+    padding: 0 spacing(small);
     border: 4px solid $black-color;
     background-color: transparent;
     border-radius: 1em;

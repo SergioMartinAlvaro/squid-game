@@ -107,12 +107,13 @@ let smheadercomponent = `
   height: 96px;
   padding: 0 16px;
   box-sizing: border-box;
-  background-color: #006EC1;
+  background-color: #3E519F;
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
   justify-content: left;
-  margin-bottom: 32px; }
+  margin-bottom: 32px;
+  border-bottom: 4px solid #fff; }
   .header__title {
     color: #52BCEC; }
 

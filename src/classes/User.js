@@ -19,7 +19,6 @@ export default class User {
     }
 
     decreaseCurrentPoints() {
-        console.log('Pa abajo')
         if (this.currentPoints > 0) {
             this.currentPoints--;
         }
@@ -43,13 +42,11 @@ export default class User {
 
         window.EE.on('sumStep', () => {
             this.increaseCurrentPoints();
-            console.log(`Tienes ${this.currentPoints} puntos`);
         });
 
         window.EE.on('restartCount', () => {
             this.gameOver();
             window.EE.emit('showFinalMessage');
-            console.log(`Has perdido, tu maxima puntuacion es: ${this.maxPoints} puntos`);
         });
 
 

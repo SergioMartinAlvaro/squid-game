@@ -42,9 +42,7 @@ export class SmCounter extends LitElement {
         window.EE.on('showFinalMessage', () => {
             this.count = 0;
             this.user = JSON.parse(localStorage.getItem('currentUser'));
-            console.log(this.user);
             this.maxCount = this.user.maxPoints;
-            console.log(`Has perdido, tu maxima puntuacion es: ${this.maxCount} puntos`);
         });
     }
 

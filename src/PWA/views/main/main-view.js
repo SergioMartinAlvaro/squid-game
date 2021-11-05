@@ -8,7 +8,8 @@ import { store } from "../../../redux/store";
 class MainView extends connect(store)(BaseView) {
 
     static get styles() {
-        return css `${unsafeCSS(mainview)}`;
+        console.log(mainview);
+        return css`${unsafeCSS(mainview)}`;
     }
 
     static get properties() {
@@ -62,14 +63,17 @@ class MainView extends connect(store)(BaseView) {
 
     render() {
         return html `
-            <main class="container">
-                <div class="container__counterWrapper">
+            <style>
+                ${unsafeCSS(mainview)}
+            </style>
+            <main class="mainContainer">
+                <div class="mainContainer__counterWrapper">
                     <sm-counter></sm-counter>
                 </div>
-                <div class="container__light">
+                <div class="mainContainer__light">
                     <sm-light></sm-light>
                 </div>
-                <div class="container__buttonWrapper">
+                <div class="mainContainer__buttonWrapper">
                     <sm-button text='Paso Izquierdo' event='stepLeft'></sm-button>
                     <sm-button text='Paso Derecho' event='stepRight'></sm-button>
                 </div>
