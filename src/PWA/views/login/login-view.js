@@ -38,6 +38,7 @@ class LoginView extends connect(store)(BaseView) {
     }
 
     render() {
+        console.log('render');
         return html `
             <style>
                 ${unsafeCSS(loginview)}
