@@ -11,6 +11,7 @@
         "@vaadin/vaadin-radio-button": "^1.5.4",
         "@vaadin/vaadin-text-field": "^21.0.3",
         "cb": "^0.1.0",
+        "gh-pages": "^3.2.3",
         "html-loader": "^3.0.0",
         "lit": "^2.0.2",
         "lodash": "^4.17.21",
@@ -42,13 +43,14 @@
         "test": "echo \"Error: no test specified\" && exit 1",
         "compile:scss": "node config/compiler/compiler.js",
         "build:dev": "npm run compile:scss && webpack --mode development --config webpack.config.js",
-        "build": "npm run compile:scss && webpack build --config webpack.prod.js",
+        "build:prod": "npm run compile:scss && webpack build --config webpack.prod.js",
         "serve": "webpack-dev-server --mode=development --config webpack.config.js --open",
         "dev-serve": "node config/concurrent-scripts/concurrency.js",
-        "pro-serve": "node config/concurrent-scripts/concurrency.prod.js",
+        "prod-serve": "node config/concurrent-scripts/concurrency.prod.js",
         "clean-dist": "node config/cleanDist/cleanDist.js",
+        "deploy": "gh-pages -d dist",
         "dev": "npm run dev-serve",
-        "prod": "npm run pro-serve"
+        "build": "npm run prod-serve"
     },
     "author": "",
     "license": "ISC"

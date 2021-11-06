@@ -18,7 +18,7 @@ function runConcurrent(command, actionOnSuccess, actionOnFailure) {
 
 const buildOnSuccess = () => {
     console.log("Completada la limpieza de bundles y estilos.\n")
-    runConcurrent('build', runOnSuccess, null)
+    runConcurrent('build:prod', runOnSuccess, null)
 }
 
 const runOnSuccess = () => {

@@ -12,7 +12,7 @@ module.exports = {
         'index': './index.js'
     },
     output: {
-        path: path.resolve(__dirname, 'dist/src'),
+        publicPath: '/squid-game/',
     },
     resolve: {
         alias: {
