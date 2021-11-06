@@ -1,4 +1,4 @@
-let smlightcomponent = `
+let smimagecomponent = `
 @charset"UTF-8";
 /** 
 * FUNCION SPACING
@@ -102,41 +102,68 @@ let smlightcomponent = `
 *   @include flexBox(row, left, center);
 *   @include flexBox(row, left, center, devices(desktop)); -- Esta cambiaria el flow al llegar al pto. de ruptura
 */
-.container {
-  width: 100%;
-  height: auto;
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
-  justify-content: center; }
-  .container__image {
-    height: 380px; }
-  .container__messageWrapper {
-    position: absolute;
-    margin-top: 205px;
-    font-size: 32px;
-    color: white;
-    font-weight: 600; }
+.image {
+  height: 200px;
+  margin: auto; }
+  .imageWrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+    margin-bottom: 64px; }
 
-.eyeContainer {
+.circle {
+  width: 300px;
+  height: 300px;
+  padding-top: 20px;
+  background-color: var(--bg);
+  border-radius: 100%; }
+
+.small-circle {
+  position: absolute !important;
+  top: 25px;
+  left: 25px;
+  width: 250px;
+  height: 250px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: var(--bg);
+  border-radius: 100%;
   display: flex;
-  flex-flow: row nowrap;
-  align-items: center;
-  margin-left: -6px;
-  margin-bottom: 24px;
-  width: 301px;
-  justify-content: space-evenly;
-  position: absolute; }
-  .eyeContainer .eye {
-    height: 30px;
-    width: 30px;
-    border-radius: 100%; }
-  .eyeContainer .eyeOpen {
-    background-color: #3E519F;
-    transition: background-color .5s; }
-  .eyeContainer .eyeClosed {
-    background-color: #fff;
-    transition: background-color .5s; }
+  justify-content: center;
+  align-items: center; }
+
+.shadow-2 {
+  position: relative;
+  box-shadow: 4px 2px 4px 0 rgba(0, 0, 0, 0.015), 8px 4px 8px 0 rgba(0, 0, 0, 0.035), 16px 8px 16px 0 rgba(0, 0, 0, 0.065);
+  z-index: 0; }
+
+.shadow-2::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  box-shadow: -4px -2px 4px 0 rgba(255, 255, 255, 0.05), -8px -4px 8px 0 rgba(255, 255, 255, 0.15), -16px -8px 16px 0 rgba(255, 255, 255, 0.25);
+  z-index: -1; }
+
+.shadow-2-inset {
+  position: relative;
+  box-shadow: inset 1px 0px 1px 0 rgba(0, 0, 0, 0.015), inset 2px 1px 2px 0 rgba(0, 0, 0, 0.035), inset 4px 2px 4px 0 rgba(0, 0, 0, 0.065);
+  z-index: 0; }
+
+.shadow-2-inset::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  box-shadow: inset -1px 0px 1px 0 rgba(255, 255, 255, 0.05), inset -2px -1px 2px 0 rgba(255, 255, 255, 0.15), inset -4px -2px 4px 0 rgba(255, 255, 255, 0.25);
+  z-index: -1; }
 
 `;
-export default smlightcomponent;
+export default smimagecomponent;

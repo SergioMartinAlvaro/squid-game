@@ -3,7 +3,7 @@ import userStorage from './UserStorage';
 export default class User {
 
     constructor(name) {
-
+        this.name = name;
         let userData = userStorage.createUser(name);
         this.id = userData.id;
         this.name = userData.name;
@@ -48,8 +48,6 @@ export default class User {
             this.gameOver();
             window.EE.emit('showFinalMessage');
         });
-
-
     }
 
     gameOver() {

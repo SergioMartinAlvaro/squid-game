@@ -1,16 +1,29 @@
 import { v4 as uuidv4 } from 'uuid';
 
 class UserStorage {
-    
+
     constructor() {
         this.usersArray = [];
-        localStorage.setItem('users', JSON.stringify(this.usersArray));
+        if (!localStorage.getItem('users')) {
+            localStorage.setItem('users', JSON.stringify(this.usersArray));
+        }
         this.usersArray = JSON.parse(localStorage.getItem('users'));
     }
 
+    loginUser(user) {
+        let existUser = this.getUserByName(user.name);
+        if (existUser) {
+            this.setCurrentUser(existUser);
+        } else {
+            this.persistUser(user);
+        }
+    }
+
     createUser(name) {
+        debugger;
         let existUser = this.getUserByName(name);
-        if(existUser.length !== 0) {
+        if (existUser.length !== 0) {
+            existUser = JSON.parse(existUser);
             return {
                 id: existUser.id,
                 name: existUser.name,
@@ -32,21 +45,20 @@ class UserStorage {
 
     persistUser(user) {
         let userExist = this.getUserByName(user.name);
-        if(userExist.length !== 0) {
+        if (userExist.length !== 0) {
             this.setCurrentUser(user);
             userExist = user;
-            this._getUsersObject().map((x,y) => {
-                if(this.getUserById(userExist.id).id === JSON.parse(x).id) {
-                    this.usersArray.splice(y,y);
+            this._getUsersObject().map((x, y) => {
+                if (this.getUserById(userExist.id).id === JSON.parse(x).id) {
+                    this.usersArray.splice(y, y);
                     this.usersArray.push(JSON.stringify(userExist));
                     localStorage.setItem('users', JSON.stringify(this.usersArray))
                 }
             })
         } else {
-            debugger;
             this.usersArray.push(JSON.stringify(user));
             localStorage.setItem('users', JSON.stringify(this.usersArray));
-            
+
         }
         return user;
 

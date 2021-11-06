@@ -1,10 +1,11 @@
-body, html {
+body,
+html {
     margin: 0;
     padding: 0;
     box-sizing: content-box;
     max-width: 100%;
     height: auto;
-    background-color: rgb(82, 188, 236);
+    background-color: #e5e5e5;
 }
 
 nav {

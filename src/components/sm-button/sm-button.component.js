@@ -1,5 +1,5 @@
 import { html, LitElement, css, unsafeCSS } from "lit";
-import  smbuttoncomponent  from "./sm-button.component-styles.js";
+import smbuttoncomponent from "./sm-button.component-styles.js";
 
 export class SmButton extends LitElement {
 
@@ -15,7 +15,7 @@ export class SmButton extends LitElement {
     }
 
     static get styles() {
-        return css`${unsafeCSS(smbuttoncomponent)}`;
+        return css `${unsafeCSS(smbuttoncomponent)}`;
     }
 
     constructor() {
@@ -25,15 +25,15 @@ export class SmButton extends LitElement {
     }
 
     render() {
-        return html`
+        return html `
             <div class="sm__buttonWrapper">
-                <button type='button' class='sm__button' @click="${this.sendEvent}">${this.text}</button>
+                <button type='button' class='circle shadow' @click="${this.sendEvent}">${this.text}</button>
             </div>
         `;
     }
 
     sendEvent() {
-        if(this.event !== '') {
+        if (this.event !== '') {
             window.EE.emit(this.event);
         } else {
             console.log('No hay un evento registrado para el componente.');

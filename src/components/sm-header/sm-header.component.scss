@@ -1,17 +1,39 @@
 @import '../../../scss/utils/abstracts';
-
 .header {
     width: 100%;
     height: spacing(plus);
     padding: 0 spacing(normal);
     box-sizing: border-box;
-    background-color: $main-color;
     @include flexBox(row, center, left);
-    margin-bottom: spacing(large);
-    border-bottom: 4px solid $white-color;
-
     &__title {
-        font-family: font-type();
-        color: $third-color;
+        color: #a4a4a4;
     }
+}
+
+.neumorph {
+    width: 100%;
+    height: 5px;
+    background-color: var(--bg);
+    font-size: 14px;
+    font-weight: bold;
+    color: #a4a4a4;
+    margin-bottom: spacing(big);
+}
+
+.shadow {
+    position: relative;
+    box-shadow: 2px 1px 2px 0 rgba(0, 0, 0, 0.025), 4px 2px 4px 0 rgba(0, 0, 0, 0.025), 8px 4px 8px 0 rgba(0, 0, 0, 0.05), 16px 8px 16px 0 rgba(0, 0, 0, 0.05), 32px 16px 32px 0 rgba(0, 0, 0, 0.05), 64px 32px 64px 0 rgba(0, 0, 0, 0.05);
+    z-index: 0;
+}
+
+.shadow::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    box-shadow: -2px -1px 2px 0 rgba(255, 255, 255, 0.4), -4px -2px 4px 0 rgba(255, 255, 255, 0.4), -8px -4px 8px 0 rgba(255, 255, 255, 0.4), -16px -8px 16px 0 rgba(255, 255, 255, 0.4), -32px -16px 32px 0 rgba(255, 255, 255, 0.4), -64px -32px 64px 0 rgba(255, 255, 255, 0.4);
+    z-index: -1;
 }

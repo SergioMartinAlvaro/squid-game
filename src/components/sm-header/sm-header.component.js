@@ -5,7 +5,7 @@ export class SmHeader extends LitElement {
 
     static get styles() {
 
-        return css`${unsafeCSS(smheadercomponent)}`;
+        return css `${unsafeCSS(smheadercomponent)}`;
     }
 
     constructor() {
@@ -13,12 +13,13 @@ export class SmHeader extends LitElement {
     }
 
     render() {
-        return html`
+        return html `
             <header class="header" id="header">
                 <h1 class="header__title">
                     Aplicacion Base
                 </h1>
             </header>
+            <div class="neumorph shadow"></div>
         `;
     }
 }

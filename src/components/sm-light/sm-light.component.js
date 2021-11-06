@@ -19,7 +19,7 @@ export class SmLight extends LitElement {
 
     static get styles() {
 
-        return css`${unsafeCSS(smlightcomponent)}`;
+        return css `${unsafeCSS(smlightcomponent)}`;
     }
 
     constructor() {
@@ -51,7 +51,7 @@ export class SmLight extends LitElement {
     }
 
     render() {
-        return html`
+        return html `
             <div class="container">
                 <div class="eyeContainer">
                     <div class="eye ${this.light ? 'eyeOpen ': 'eyeClosed'}"></div>
@@ -68,7 +68,7 @@ export class SmLight extends LitElement {
     }
 
     changeMessage() {
-        if(this.light) {
+        if (this.light) {
             this.message = COMPONENT_MESSAGES.light.ok;
         } else {
             this.message = COMPONENT_MESSAGES.light.notok;
@@ -80,16 +80,9 @@ export class SmLight extends LitElement {
     }
 
     startLight() {
-        this.loadUserData();
         setInterval(() => {
             window.EE.emit('changeLight');
         }, this.timeToChangeInMs);
-    }
-
-    loadUserData() {
-        let user = new User('paco');
-        user = new User('sergio');
-        user.connect();
     }
 }
 

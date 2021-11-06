@@ -107,15 +107,37 @@ let smheadercomponent = `
   height: 96px;
   padding: 0 16px;
   box-sizing: border-box;
-  background-color: #3E519F;
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
-  justify-content: left;
-  margin-bottom: 32px;
-  border-bottom: 4px solid #fff; }
+  justify-content: left; }
   .header__title {
-    color: #52BCEC; }
+    color: #a4a4a4; }
+
+.neumorph {
+  width: 100%;
+  height: 5px;
+  background-color: var(--bg);
+  font-size: 14px;
+  font-weight: bold;
+  color: #a4a4a4;
+  margin-bottom: 64px; }
+
+.shadow {
+  position: relative;
+  box-shadow: 2px 1px 2px 0 rgba(0, 0, 0, 0.025), 4px 2px 4px 0 rgba(0, 0, 0, 0.025), 8px 4px 8px 0 rgba(0, 0, 0, 0.05), 16px 8px 16px 0 rgba(0, 0, 0, 0.05), 32px 16px 32px 0 rgba(0, 0, 0, 0.05), 64px 32px 64px 0 rgba(0, 0, 0, 0.05);
+  z-index: 0; }
+
+.shadow::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  box-shadow: -2px -1px 2px 0 rgba(255, 255, 255, 0.4), -4px -2px 4px 0 rgba(255, 255, 255, 0.4), -8px -4px 8px 0 rgba(255, 255, 255, 0.4), -16px -8px 16px 0 rgba(255, 255, 255, 0.4), -32px -16px 32px 0 rgba(255, 255, 255, 0.4), -64px -32px 64px 0 rgba(255, 255, 255, 0.4);
+  z-index: -1; }
 
 `;
 export default smheadercomponent;

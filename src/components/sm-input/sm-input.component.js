@@ -11,7 +11,7 @@ export class SmInput extends LitElement {
             type: {
                 type: String
             },
-            class: {
+            className: {
                 type: String
             },
             isPrimary: {
@@ -37,8 +37,9 @@ export class SmInput extends LitElement {
 
     render() {
         return html `
-                <input type="${this.type}" class='${this.class}
+                <input type="${this.type}" class='${this.className}
                 ${this.isPrimary ? 'smInput__primary' : 'smInput__secondary'}' placeholder="${this.placeholder}" />
+                <div class="neumorph shadow"></div>
         `;
     }
 }
