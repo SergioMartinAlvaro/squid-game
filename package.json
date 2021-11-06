@@ -11,6 +11,7 @@
         "@vaadin/vaadin-radio-button": "^1.5.4",
         "@vaadin/vaadin-text-field": "^21.0.3",
         "cb": "^0.1.0",
+        "file-loader": "^6.2.0",
         "gh-pages": "^3.2.3",
         "html-loader": "^3.0.0",
         "lit": "^2.0.2",

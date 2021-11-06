@@ -25,7 +25,7 @@ class UserStorage {
             return {
                 id: existUser.id,
                 name: existUser.name,
-                isLogged: false,
+                isLogged: true,
                 maxPoints: existUser.maxPoints,
                 currentPoints: existUser.currentPoints
             }
@@ -54,7 +54,8 @@ class UserStorage {
             userExist = user;
             this._getUsersObject().map((x, y) => {
                 if (this.getUserById(userExist.id).id === JSON.parse(x).id) {
-                    this.usersArray.splice(y, y);
+                    debugger;
+                    this.usersArray.splice(y, 1);
                     this.usersArray.push(JSON.stringify(userExist));
                     localStorage.setItem('users', JSON.stringify(this.usersArray))
                 }

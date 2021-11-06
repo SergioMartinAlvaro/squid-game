@@ -29,7 +29,7 @@ const runOnSuccess = () => {
         "---      Para abrir la app en el navegador      ---\n" +
         "---      URL:              ---\n" +
         "---------------------------------------------------\n");
-    runConcurrent('serve', null, null)
+    //   runConcurrent('serve', null, null)
 }
 
 const runOnFailure = () => {

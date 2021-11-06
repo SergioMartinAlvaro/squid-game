@@ -6,6 +6,7 @@ import { store } from "../../../redux/store";
 import COMPONENT_MESSAGES from "../../../utils/messages/componentMessages";
 import userStorage from "../../../classes/UserStorage";
 import User from "../../../classes/User";
+import img from '../../../assets/squid.svg';
 
 const inputClass = 'input__login';
 class LoginView extends connect(store)(BaseView) {
@@ -42,7 +43,7 @@ class LoginView extends connect(store)(BaseView) {
                 ${unsafeCSS(loginview)}
             </style>
             <main class="loginContainer">
-                <sm-image className='imageSquid' url='../../../assets/squid.svg'></sm-image>
+                <sm-image className='imageSquid' url='${img}'></sm-image>
                 <div class="loginContainer__loginWrapper">
                     <div class="loginContainer__inputWrapper">
                         <a class="main-access link" href="/main">Ir al juego</a>

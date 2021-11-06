@@ -12,6 +12,7 @@ module.exports = {
         'index': './index.js'
     },
     output: {
+        path: path.resolve(__dirname, 'dist/src'),
         publicPath: '/squid-game/',
     },
     resolve: {
@@ -35,8 +36,12 @@ module.exports = {
     ],
     module: {
         rules: [{
-                test: /assets\.(png|svg|jpg|jpeg|gif)$/i,
-                type: 'assets/',
+                test: /\.(png|svg|jpg|jpeg|gif)$/i,
+                loader: 'file-loader',
+                options: {
+                    publicPath: '/dist/assets/',
+                    name: '[path][name].[ext]'
+                }
             },
             {
                 test: /\.(woff|woff2|eot|ttf|otf)$/i,
