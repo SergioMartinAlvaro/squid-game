@@ -13,7 +13,7 @@ module.exports = {
     },
     output: {
         path: path.resolve(__dirname, 'dist/src'),
-        publicPath: '/squid-game/',
+        publicPath: '/squid-game/src/',
     },
     resolve: {
         alias: {
@@ -28,11 +28,11 @@ module.exports = {
             filename: indexOutput,
             template: 'index.html'
         }),
-        new CopyWebpackPlugin({
-            patterns: [
-                { from: "assets", to: "assets" }
-            ],
-        }),
+        /*new CopyWebpackPlugin({
+    patterns: [
+        { from: "assets", to: "assets" }
+    ],
+}),*/
     ],
     module: {
         rules: [{
