@@ -42,10 +42,13 @@
         "test": "echo \"Error: no test specified\" && exit 1",
         "compile:scss": "node config/compiler/compiler.js",
         "build:dev": "npm run compile:scss && webpack --mode development --config webpack.config.js",
+        "build": "npm run compile:scss && webpack build --config webpack.prod.js",
         "serve": "webpack-dev-server --mode=development --config webpack.config.js --open",
         "dev-serve": "node config/concurrent-scripts/concurrency.js",
+        "pro-serve": "node config/concurrent-scripts/concurrency.prod.js",
         "clean-dist": "node config/cleanDist/cleanDist.js",
-        "dev": "npm run dev-serve"
+        "dev": "npm run dev-serve",
+        "prod": "npm run pro-serve"
     },
     "author": "",
     "license": "ISC"

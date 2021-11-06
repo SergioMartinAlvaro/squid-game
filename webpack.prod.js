@@ -27,11 +27,16 @@ module.exports = {
             filename: indexOutput,
             template: 'index.html'
         }),
+        new CopyWebpackPlugin({
+            patterns: [
+                { from: "assets", to: "assets" }
+            ],
+        }),
     ],
     module: {
         rules: [{
-                test: /\.(png|svg|jpg|jpeg|gif)$/i,
-                type: 'asset/resource',
+                test: /assets\.(png|svg|jpg|jpeg|gif)$/i,
+                type: 'assets/',
             },
             {
                 test: /\.(woff|woff2|eot|ttf|otf)$/i,
@@ -59,13 +64,5 @@ module.exports = {
                 ]
             }
         ]
-    },
-    /*devServer: {
-        static: {
-            directory: path.join(__dirname, '/')
-        },
-        compress: true,
-        port: 8080
-    }*/
-
+    }
 };

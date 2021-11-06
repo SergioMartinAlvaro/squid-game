@@ -16,7 +16,7 @@ export class SmHeader extends LitElement {
         return html `
             <header class="header" id="header">
                 <h1 class="header__title">
-                    Aplicacion Base
+                    Squid Game
                 </h1>
             </header>
             <div class="neumorph shadow"></div>

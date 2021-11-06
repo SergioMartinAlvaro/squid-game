@@ -4,9 +4,7 @@ class UserStorage {
 
     constructor() {
         this.usersArray = [];
-        if (!localStorage.getItem('users')) {
-            localStorage.setItem('users', JSON.stringify(this.usersArray));
-        }
+        this.persistUsersStorageIfNotExists();
         this.usersArray = JSON.parse(localStorage.getItem('users'));
     }
 
@@ -20,7 +18,7 @@ class UserStorage {
     }
 
     createUser(name) {
-        debugger;
+        this.persistUsersStorageIfNotExists();
         let existUser = this.getUserByName(name);
         if (existUser.length !== 0) {
             existUser = JSON.parse(existUser);
@@ -40,6 +38,12 @@ class UserStorage {
                 maxPoints: 0,
                 currentPoints: 0,
             }
+        }
+    }
+
+    persistUsersStorageIfNotExists() {
+        if (!localStorage.getItem('users')) {
+            localStorage.setItem('users', JSON.stringify(this.usersArray));
         }
     }
 
