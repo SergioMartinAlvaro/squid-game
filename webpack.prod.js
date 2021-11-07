@@ -27,7 +27,10 @@ module.exports = {
         new HtmlWebpackPlugin({
             filename: indexOutput,
             template: 'index.html'
-        })
+        }),
+        new webpack.DefinePlugin({
+            "process.env.ROOT_URL": JSON.stringify("/squid-game")
+        }),
     ],
     module: {
         rules: [{

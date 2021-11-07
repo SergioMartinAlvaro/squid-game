@@ -23,6 +23,9 @@ module.exports = {
         ]
     },
     plugins: [
+        new webpack.DefinePlugin({
+            "process.env.ROOT_URL": JSON.stringify("/")
+        }),
         new HtmlWebpackPlugin({
             filename: indexOutput,
             template: 'index.html'

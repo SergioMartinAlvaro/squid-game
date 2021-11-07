@@ -16,6 +16,12 @@ function initRouter() {
                 import ( /* webpackChunkName: "stats" */ './src/PWA/views/login/login-view')
         },
         {
+            path: '/squid-game',
+            component: 'login-view',
+            action: () =>
+                import ( /* webpackChunkName: "stats" */ './src/PWA/views/login/login-view')
+        },
+        {
             path: '/main',
             component: 'main-view',
             action: () =>

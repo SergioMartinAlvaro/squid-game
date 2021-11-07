@@ -29,6 +29,7 @@ export class SmHeader extends LitElement {
 
     render() {
             return html `
+            <a class="login-access link" href="/squid-game">Ir al juego</a>
             <header class="header" id="header">
                 <h1 class="header__title">
                     Squid Game
@@ -45,7 +46,8 @@ export class SmHeader extends LitElement {
 
     logout() {
         window.EE.emit('logout', this.user);
-        window.location.href = '/';
+        window.EE.removeListeners();
+        window.location.href = process.env.ROOT_URL;
     }
 }
 

@@ -121,6 +121,9 @@ let smheadercomponent = `
     .header__text:hover {
       cursor: pointer; }
 
+.link {
+  display: none; }
+
 .neumorph {
   width: 100%;
   height: 5px;

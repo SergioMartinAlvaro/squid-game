@@ -56,8 +56,7 @@ class LoginView extends connect(store)(BaseView) {
         `;
     }
 
-    createUser(userName) {
-        debugger;
+    createUser(userName) {;
         let newUser = new User(userName);
         userStorage.loginUser(newUser);
         newUser.connect();

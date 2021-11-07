@@ -2,7 +2,7 @@ class EventEmitter {
     constructor() {
         this._events = {};
 
-        if(typeof EventEmitter.instance === "object") {
+        if (typeof EventEmitter.instance === "object") {
             return EventEmitter.instance;
         }
 
@@ -11,15 +11,19 @@ class EventEmitter {
     }
 
     on(name, listener) {
-        if(!this._events[name]) {
+        if (!this._events[name]) {
             this._events[name] = [];
         }
 
         this._events[name].push(listener);
     }
 
+    removeListeners() {
+        this._events = {};
+    }
+
     removeListener(name, listenerToRemove) {
-        if(!this._events[name]) {
+        if (!this._events[name]) {
             throw new Error(`Can't remove a listener. Event "${name}" does not exists`);
         }
         const filterListeners = (listener) => listener !== listenerToRemove;
@@ -28,7 +32,7 @@ class EventEmitter {
     }
 
     emit(name, data) {
-        if(!this._events[name]) {
+        if (!this._events[name]) {
             throw new Error(`Can't emit an event. Event "${name}" does not exists`);
         }
 

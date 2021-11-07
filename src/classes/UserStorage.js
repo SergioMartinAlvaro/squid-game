@@ -53,8 +53,7 @@ class UserStorage {
             this.setCurrentUser(user);
             userExist = user;
             this._getUsersObject().map((x, y) => {
-                if (this.getUserById(userExist.id).id === JSON.parse(x).id) {
-                    debugger;
+                if (this.getUserById(userExist.id).id === JSON.parse(x).id) {;
                     this.usersArray.splice(y, 1);
                     this.usersArray.push(JSON.stringify(userExist));
                     localStorage.setItem('users', JSON.stringify(this.usersArray))
