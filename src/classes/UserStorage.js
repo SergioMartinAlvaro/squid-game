@@ -1,8 +1,17 @@
 import { v4 as uuidv4 } from 'uuid';
+import User from './User';
 
-class UserStorage {
+export class UserStorage {
 
     constructor() {
+
+        // Singleton Instance
+        if (typeof UserStorage.instance === "object") {
+            return UserStorage.instance;
+        }
+
+        UserStorage.instance = this;
+
         this.usersArray = [];
         this.persistUsersStorageIfNotExists();
         this.usersArray = JSON.parse(localStorage.getItem('users'));
@@ -10,7 +19,7 @@ class UserStorage {
 
     loginUser(user) {
         let existUser = this.getUserByName(user.name);
-        if (existUser) {
+        if (existUser.length != 0) {
             this.setCurrentUser(existUser);
         } else {
             this.persistUser(user);
@@ -69,7 +78,6 @@ class UserStorage {
     }
 
     logout(user) {
-        console.log(user);
         this.persistUser(user);
         localStorage.removeItem('currentUser');
     }
@@ -90,10 +98,6 @@ class UserStorage {
     getUserByName(name) {
         let users = this._getUsersObject();
         return users.filter(user => JSON.parse(user).name === name);
-    }
-
-    removeById() {
-
     }
 }
 

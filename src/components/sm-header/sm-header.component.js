@@ -1,4 +1,5 @@
 import { html, LitElement, css, unsafeCSS } from "lit";
+import userStorage from "../../classes/UserStorage.js";
 import smheadercomponent from "./sm-header.component-styles.js";
 
 export class SmHeader extends LitElement {
@@ -45,8 +46,7 @@ export class SmHeader extends LitElement {
     }
 
     logout() {
-        window.EE.emit('logout', this.user);
-        window.EE.removeListeners();
+        window.EE.emit('logout');
         window.location.href = process.env.ROOT_URL;
     }
 }

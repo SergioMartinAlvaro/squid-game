@@ -26,12 +26,6 @@ export default class User {
         return this;
     }
 
-    disconnect() {
-        // Sacar de localStorage
-        this._storeUser();
-        this.isLogged = false;
-    }
-
     connect() {
         this.isLogged = true;
         this._setCurrentUser();
@@ -49,8 +43,8 @@ export default class User {
             window.EE.emit('showFinalMessage');
         });
 
-        window.EE.on('logout', (user) => {
-            this.logout(user);
+        window.EE.on('logout', () => {
+            this.logout();
         })
     }
 
@@ -63,9 +57,9 @@ export default class User {
         return this;
     }
 
-    logout(user) {
+    logout() {
         this.isLogged = false;
-        userStorage.logout(user);
+        userStorage.logout(this);
     }
 
     getName() {
@@ -82,10 +76,5 @@ export default class User {
 
     _storeUser() {
         userStorage.persistUser(this);
-    }
-
-
-    _getUserData(name) {
-        userStorage.createUser(name);
     }
 }

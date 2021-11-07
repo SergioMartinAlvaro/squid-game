@@ -1,5 +1,26 @@
 {
     "name": "test",
+    "jest": {
+        "setupFiles": [
+            "./test/LocalStorage/LocalStorageMock.js",
+            "./test/EventEmitterMock/EventEmitterMock.js"
+        ],
+        "globals": {
+            "window": {}
+        },
+        "testPathIgnorePatterns": [
+            "/node_modules/"
+        ],
+        "collectCoverage": true,
+        "coverageReporters": [
+            "html"
+        ],
+        "coverageDirectory": "./test/report",
+        "testEnvironment": "node",
+        "modulePathIgnorePatterns": [
+            "/node_modules/"
+        ]
+    },
     "version": "1.0.0",
     "description": "",
     "main": "index.js",
@@ -10,6 +31,9 @@
         "@vaadin/vaadin-checkbox": "^21.0.3",
         "@vaadin/vaadin-radio-button": "^1.5.4",
         "@vaadin/vaadin-text-field": "^21.0.3",
+        "babel-plugin-syntax-dynamic-import": "^6.18.0",
+        "babel-plugin-transform-runtime": "^6.23.0",
+        "babel-preset-es2015": "^6.24.1",
         "cb": "^0.1.0",
         "file-loader": "^6.2.0",
         "gh-pages": "^3.2.3",
@@ -32,17 +56,21 @@
     },
     "devDependencies": {
         "@babel/core": "^7.15.8",
+        "@babel/plugin-transform-modules-commonjs": "^7.16.0",
         "@babel/preset-env": "^7.15.8",
         "babel-loader": "^8.2.2",
         "clean-webpack-plugin": "^4.0.0",
         "concurrently": "^6.3.0",
         "copy-webpack-plugin": "^9.0.1",
         "html-webpack-plugin": "^5.4.0",
+        "jest": "^27.3.1",
+        "ts-jest": "^27.0.7",
         "webpack-dev-server": "^4.3.1",
         "webpack-pwa-manifest": "^4.3.0"
     },
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
+        "test": "jest",
+        "test:coverage": "jest --coverage",
         "compile:scss": "node config/compiler/compiler.js",
         "build:dev": "npm run compile:scss && webpack --mode development --config webpack.config.js",
         "build:prod": "npm run compile:scss && webpack build --mode production --config webpack.prod.js",
