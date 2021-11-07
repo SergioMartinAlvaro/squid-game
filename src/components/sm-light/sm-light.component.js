@@ -29,13 +29,22 @@ export class SmLight extends LitElement {
         super();
         this.turnOn = false;
         this.lightClass = 'open';
-        this.timeToChangeInMs = 10000;
+        this.timeGreen = 10000;
+        this.timeRed = 3000;
+        this.timeToChangeInMs = this.timeRed;
         this.message = COMPONENT_MESSAGES.light.notok;
 
         // Este evento cambia la luz del semaforo cuando es llamado
         window.EE.on('changeLight', () => {
             this.changeLight();
             this.changeMessage();
+            this.changeTiming();
+            clearInterval(this.refreshInterval);
+            this.startLight();
+        })
+
+        window.EE.on('recalculateTime', (isUp) => {
+            this.recalculateTime(isUp);
         })
 
         window.EE.on('handleMovement', () => {
@@ -46,12 +55,17 @@ export class SmLight extends LitElement {
             }
         })
 
+        window.EE.on('showFinalMessage', () => {
+            this.timeGreen = 10000;
+        });
+
+
+
         this.startLight();
     }
 
     attributeChangedCallback(name, oldVal, newVal) {
         super.attributeChangedCallback(name, oldVal, newVal);
-        this.requestRender();
     }
 
     render() {
@@ -78,12 +92,34 @@ export class SmLight extends LitElement {
         }
     }
 
+    recalculateTime(isUp) {
+        if (isUp) {
+            if (this.timeGreen > 2000) {
+                this.timeGreen -= 1000;
+            }
+        } else {
+            if (this.timeGreen < 10000) {
+                this.timeGreen += 1000;
+            }
+        }
+
+    }
+
+    changeTiming() {
+        if (this.light) {
+            this.timeToChangeInMs = this.timeGreen;
+        } else {
+            this.timeToChangeInMs = this.timeRed;
+        }
+    }
+
     changeLight() {
         this.light = !this.light;
     }
 
     startLight() {
-        setInterval(() => {
+        this.refreshInterval = setInterval(() => {
+            console.log(this.timeToChangeInMs)
             window.EE.emit('changeLight');
         }, this.timeToChangeInMs);
     }

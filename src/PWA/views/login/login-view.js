@@ -38,11 +38,11 @@ class LoginView extends connect(store)(BaseView) {
     }
 
     render() {
-        console.log('render');
         return html `
             <style>
                 ${unsafeCSS(loginview)}
             </style>
+                <sm-header isLogged="unlogged"></sm-header>
             <main class="loginContainer">
                 <sm-image className='imageSquid' url='${img}'></sm-image>
                 <div class="loginContainer__loginWrapper">

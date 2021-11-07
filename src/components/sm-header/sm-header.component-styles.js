@@ -110,9 +110,16 @@ let smheadercomponent = `
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
-  justify-content: left; }
+  justify-content: left;
+  justify-content: space-between; }
   .header__title {
     color: #a4a4a4; }
+  .header__text {
+    font-weight: 700;
+    color: #a4a4a4;
+    font-size: 20px; }
+    .header__text:hover {
+      cursor: pointer; }
 
 .neumorph {
   width: 100%;

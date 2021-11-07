@@ -1,6 +1,5 @@
 import { html, LitElement, css, unsafeCSS } from "lit";
 import smcountercomponent from "./sm-counter.component-styles.js";
-import userStorage from '../../classes/UserStorage';
 
 export class SmCounter extends LitElement {
 
@@ -25,17 +24,25 @@ export class SmCounter extends LitElement {
     constructor() {
         super();
         this.user = JSON.parse(localStorage.getItem('currentUser'));
-        this.count = 0;
-        this.maxCount = 0;
+        if (this.user) {
+            this.count = this.user.currentPoints;
+            this.maxCount = this.user.maxPoints;
+        } else {
+            this.count = 0;
+            this.maxCount = 0;
+        }
         this.message = '';
 
         window.EE.on('sumStep', () => {
+            console.log(this.count);
             this.count++;
+            window.EE.emit('recalculateTime', true)
         });
 
         window.EE.on('decreaseCount', () => {
             if (this.count > 0) {
                 this.count--;
+                window.EE.emit('recalculateTime', false)
             }
         })
 
@@ -51,12 +58,13 @@ export class SmCounter extends LitElement {
     }
 
     render() {
-            return html `
-            <h1>La puntuación actual es: ${this.count}</h1>
-            ${this.maxCount > 0 ? html`
-                <h3>La puntación máxima es ${this.maxCount}</h3>
-            `: html``}
-        `;
+        return html `
+            <div class="counterContainer">
+                <h1 class="counterContainer__points">La puntuación actual es: ${this.count}</h1>
+                <h3 class="counterContainer__maxPoints">La puntación máxima es ${this.maxCount}</h3>
+            </div>
+
+    `;
     }
 }
 

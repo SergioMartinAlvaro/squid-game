@@ -69,6 +69,12 @@ class UserStorage {
 
     }
 
+    logout(user) {
+        console.log(user);
+        this.persistUser(user);
+        localStorage.removeItem('currentUser');
+    }
+
     setCurrentUser(user) {
         localStorage.setItem('currentUser', JSON.stringify(user));
     }

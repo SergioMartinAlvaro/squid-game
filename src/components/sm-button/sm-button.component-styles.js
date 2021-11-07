@@ -117,6 +117,8 @@ let smbuttoncomponent = `
   .sm__buttonWrapper {
     height: auto;
     width: 100%; }
+    .sm__buttonWrapper--small {
+      width: 150px; }
 
 .circle {
   width: 100%;

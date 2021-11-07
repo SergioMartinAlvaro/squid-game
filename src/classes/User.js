@@ -48,6 +48,10 @@ export default class User {
             this.gameOver();
             window.EE.emit('showFinalMessage');
         });
+
+        window.EE.on('logout', (user) => {
+            this.logout(user);
+        })
     }
 
     gameOver() {
@@ -57,6 +61,11 @@ export default class User {
         this.currentPoints = 0;
         this._storeUser();
         return this;
+    }
+
+    logout(user) {
+        this.isLogged = false;
+        userStorage.logout(user);
     }
 
     getName() {

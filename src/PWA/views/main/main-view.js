@@ -9,7 +9,7 @@ class MainView extends connect(store)(BaseView) {
 
     static get styles() {
         console.log(mainview);
-        return css`${unsafeCSS(mainview)}`;
+        return css `${unsafeCSS(mainview)}`;
     }
 
     static get properties() {
@@ -66,6 +66,7 @@ class MainView extends connect(store)(BaseView) {
             <style>
                 ${unsafeCSS(mainview)}
             </style>
+                <sm-header isLogged="login"></sm-header>
             <main class="mainContainer">
                 <div class="mainContainer__counterWrapper">
                     <sm-counter></sm-counter>
@@ -74,8 +75,8 @@ class MainView extends connect(store)(BaseView) {
                     <sm-light></sm-light>
                 </div>
                 <div class="mainContainer__buttonWrapper">
-                    <sm-button text='Paso Izquierdo' event='stepLeft'></sm-button>
-                    <sm-button text='Paso Derecho' event='stepRight'></sm-button>
+                    <sm-button text='Paso Izquierdo' type='secondary' event='stepLeft'></sm-button>
+                    <sm-button text='Paso Derecho' type='secondary' event='stepRight'></sm-button>
                 </div>
             </main>
         `;

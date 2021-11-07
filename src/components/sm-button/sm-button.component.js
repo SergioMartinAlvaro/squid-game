@@ -10,6 +10,9 @@ export class SmButton extends LitElement {
             },
             event: {
                 type: String
+            },
+            type: {
+                type: String
             }
         }
     }
@@ -20,16 +23,24 @@ export class SmButton extends LitElement {
 
     constructor() {
         super();
+        this.type = 'primary';
         this.text = '';
         this.event = '';
+        if (this.type !== 'primary') {
+            this.classButton = '--small';
+        }
     }
 
     render() {
         return html `
-            <div class="sm__buttonWrapper">
+            <div class="sm__buttonWrapper${this.classButton}">
                 <button type='button' class='circle shadow' @click="${this.sendEvent}">${this.text}</button>
             </div>
         `;
+    }
+
+    attributeChangedCallback(name, oldVal, newVal) {
+        super.attributeChangedCallback(name, oldVal, newVal);
     }
 
     sendEvent() {

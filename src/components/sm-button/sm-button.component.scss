@@ -15,6 +15,9 @@
     &Wrapper {
         height: auto;
         width: 100%;
+        &--small {
+            width: 150px;
+        }
     }
 }
 
