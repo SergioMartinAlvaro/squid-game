@@ -1,41 +1,86 @@
 @import '../../../scss/utils/abstracts';
-.container {
+.girlContainer {
     width: 100%;
+    margin-top: spacing(big);
+    max-width: 320px;
     height: auto;
-    @include flexBox(column, center, center);
-    &__imageWrapper {}
-    &__image {
-        height: 380px;
+    &__smile {
+        margin: auto;
+        margin-top: spacing(large);
+        width: 200px;
+        height: 20px;
+        margin-bottom: spacing(big);
     }
-    &__messageWrapper {
-        position: absolute;
-        margin-top: 205px;
-        font-size: 32px;
-        color: white;
-        font-weight: 600;
+    &__midRow {
+        margin-top: spacing(large);
+        width: 320px;
+        height: auto;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-around;
+    }
+    &__nose {
+        margin: auto;
+        margin-top: spacing();
+        width: 30px;
+        height: 50px;
+    }
+    &__eye {
+        &--open {
+            height: 50px;
+            width: 50px;
+            transition: width 1s;
+        }
+        &--closed {
+            height: 50px;
+            width: 20px;
+            transition: width 1s;
+        }
     }
 }
 
-.eyeContainer {
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-    margin-left: -6px;
-    margin-bottom: 24px;
-    width: 301px;
-    justify-content: space-evenly;
+.circle {
+    border-radius: 500rem;
+    border: none;
+}
+
+.shadow:hover {
+    position: relative;
+    box-shadow: 2px 1px 2px 0 rgba(0, 0, 0, 0.025), 4px 2px 4px 0 rgba(0, 0, 0, 0.025), 8px 4px 8px 0 rgba(0, 0, 0, 0.05), 16px 8px 16px 0 rgba(0, 0, 0, 0.05), 32px 16px 32px 0 rgba(0, 0, 0, 0.05), 64px 32px 64px 0 rgba(0, 0, 0, 0.05);
+    z-index: 0;
+    transition: box-shadow .5s;
+}
+
+.shadow:hover::before {
+    content: '';
     position: absolute;
-    .eye {
-        height: 30px;
-        width: 30px;
-        border-radius: 100%;
-    }
-    .eyeOpen {
-        background-color: $main-color;
-        transition: background-color .5s;
-    }
-    .eyeClosed {
-        background-color: $white-color;
-        transition: background-color .5s;
-    }
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    box-shadow: -2px -1px 2px 0 rgba(255, 255, 255, 0.4), -4px -2px 4px 0 rgba(255, 255, 255, 0.4), -8px -4px 8px 0 rgba(255, 255, 255, 0.4), -16px -8px 16px 0 rgba(255, 255, 255, 0.4), -32px -16px 32px 0 rgba(255, 255, 255, 0.4), -64px -32px 64px 0 rgba(255, 255, 255, 0.4);
+    z-index: -1;
+    transition: box-shadow .5s;
+}
+
+.shadow {
+    position: relative;
+    box-shadow: 4px 2px 4px 0 rgba(0, 0, 0, 0.015), 8px 4px 8px 0 rgba(0, 0, 0, 0.035), 16px 8px 16px 0 rgba(0, 0, 0, 0.065);
+    z-index: 0;
+    cursor: pointer;
+    transition: box-shadow .5s;
+}
+
+.shadow::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    box-shadow: -4px -2px 4px 0 rgba(255, 255, 255, 0.05), -8px -4px 8px 0 rgba(255, 255, 255, 0.15), -16px -8px 16px 0 rgba(255, 255, 255, 0.25);
+    z-index: -1;
+    transition: box-shadow, .5s;
 }

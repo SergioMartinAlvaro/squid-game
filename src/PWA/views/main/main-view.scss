@@ -1,12 +1,9 @@
 @import '../../../../scss/utils/abstracts';
-
 .mainContainer {
     height: auto;
     width: 100%;
     box-sizing: border-box;
     @include flexBox(column, center, center);
-    background-color: $third-color;
-
     &__buttonWrapper {
         @include flexBox(row, center, center);
         width: 100%;

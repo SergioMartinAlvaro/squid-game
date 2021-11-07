@@ -20,6 +20,7 @@ export class SmImage extends LitElement {
 
     constructor() {
         super();
+        document.documentElement.style.setProperty("--varImage", this.url);
     }
 
     attributeChangedCallback(name, oldVal, newVal) {
@@ -31,7 +32,7 @@ export class SmImage extends LitElement {
             <div class="imageWrapper shadow">
                 <div class="circle shadow-2">
                     <div class="small-circle shadow-2-inset">
-                        <img src="${this.url}" alt='photo' class='image ${this.className}' />
+                      <img src="${this.url}" alt='photo' class='image ${this.className}' />
                     </div>
                 </div>
             </div>

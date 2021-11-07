@@ -104,7 +104,7 @@ let smimagecomponent = `
 */
 .image {
   height: 200px;
-  margin: auto; }
+  width: 200px; }
   .imageWrapper {
     display: flex;
     justify-content: center;

@@ -109,8 +109,7 @@ let mainview = `
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
-  justify-content: center;
-  background-color: #52BCEC; }
+  justify-content: center; }
   .mainContainer__buttonWrapper {
     display: flex;
     flex-flow: row nowrap;

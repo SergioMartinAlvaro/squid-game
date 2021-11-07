@@ -13,6 +13,9 @@ export class SmLight extends LitElement {
             },
             message: {
                 type: String
+            },
+            lightClass: {
+                type: String
             }
         }
     }
@@ -25,6 +28,7 @@ export class SmLight extends LitElement {
     constructor() {
         super();
         this.turnOn = false;
+        this.lightClass = 'open';
         this.timeToChangeInMs = 10000;
         this.message = COMPONENT_MESSAGES.light.notok;
 
@@ -52,16 +56,13 @@ export class SmLight extends LitElement {
 
     render() {
         return html `
-            <div class="container">
-                <div class="eyeContainer">
-                    <div class="eye ${this.light ? 'eyeOpen ': 'eyeClosed'}"></div>
-                    <div class="eye ${this.light ? 'eyeOpen ': 'eyeClosed'}"></div>
+            <div class="girlContainer">
+                <div class="girlContainer__midRow">
+                    <div class="girlContainer__eye--${this.lightClass} circle shadow"></div>
+                    <div class="girlContainer__eye--${this.lightClass} circle shadow"></div>
                 </div>
-                <figure class="container__imageWrapper">
-                    <img class="container__image" alt="nina-calamar" src="../../assets/ninia.svg" />
-                </figure>
-                <div class="container__messageWrapper">
-                    <p class="container__message">${this.message}</p>
+                <div class="girlContainer__nose circle shadow"></div>
+                <div class="girlContainer__smile circle shadow"></div>
                 </div>
             </div>
         `;
@@ -69,8 +70,10 @@ export class SmLight extends LitElement {
 
     changeMessage() {
         if (this.light) {
+            this.lightClass = 'closed';
             this.message = COMPONENT_MESSAGES.light.ok;
         } else {
+            this.lightClass = 'open';
             this.message = COMPONENT_MESSAGES.light.notok;
         }
     }

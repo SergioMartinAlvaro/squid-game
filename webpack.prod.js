@@ -12,8 +12,8 @@ module.exports = {
         'index': './index.js'
     },
     output: {
-        path: path.resolve(__dirname, 'dist/src'),
-        publicPath: '/squid-game/src/',
+        path: path.resolve(__dirname, 'dist'),
+        publicPath: '/squid-game/',
     },
     resolve: {
         alias: {
@@ -27,20 +27,21 @@ module.exports = {
         new HtmlWebpackPlugin({
             filename: indexOutput,
             template: 'index.html'
-        }),
-        /*new CopyWebpackPlugin({
-    patterns: [
-        { from: "assets", to: "assets" }
-    ],
-}),*/
+        })
     ],
     module: {
         rules: [{
-                test: /\.(png|svg|jpg|jpeg|gif)$/i,
-                loader: 'file-loader',
-                options: {
-                    publicPath: '/dist/assets/',
-                    name: '[path][name].[ext]'
+
+                test: /\.(jpg|png|gif|svg)$/,
+                use: {
+                    loader: 'url-loader',
+                    options: {
+                        limit: 100000,
+                        fallback: 'file-loader',
+                        name: '[name].[ext]',
+                        publicPath: 'squid-game/img/',
+                        outputPath: 'assets/img/'
+                    }
                 }
             },
             {

@@ -102,41 +102,78 @@ let smlightcomponent = `
 *   @include flexBox(row, left, center);
 *   @include flexBox(row, left, center, devices(desktop)); -- Esta cambiaria el flow al llegar al pto. de ruptura
 */
-.container {
+.girlContainer {
   width: 100%;
-  height: auto;
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
-  justify-content: center; }
-  .container__image {
-    height: 380px; }
-  .container__messageWrapper {
-    position: absolute;
-    margin-top: 205px;
-    font-size: 32px;
-    color: white;
-    font-weight: 600; }
-
-.eyeContainer {
-  display: flex;
-  flex-flow: row nowrap;
-  align-items: center;
-  margin-left: -6px;
-  margin-bottom: 24px;
-  width: 301px;
-  justify-content: space-evenly;
-  position: absolute; }
-  .eyeContainer .eye {
-    height: 30px;
+  margin-top: 64px;
+  max-width: 320px;
+  height: auto; }
+  .girlContainer__smile {
+    margin: auto;
+    margin-top: 32px;
+    width: 200px;
+    height: 20px;
+    margin-bottom: 64px; }
+  .girlContainer__midRow {
+    margin-top: 32px;
+    width: 320px;
+    height: auto;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around; }
+  .girlContainer__nose {
+    margin: auto;
+    margin-top: 24px;
     width: 30px;
-    border-radius: 100%; }
-  .eyeContainer .eyeOpen {
-    background-color: #3E519F;
-    transition: background-color .5s; }
-  .eyeContainer .eyeClosed {
-    background-color: #fff;
-    transition: background-color .5s; }
+    height: 50px; }
+  .girlContainer__eye--open {
+    height: 50px;
+    width: 50px;
+    transition: width 1s; }
+  .girlContainer__eye--closed {
+    height: 50px;
+    width: 20px;
+    transition: width 1s; }
+
+.circle {
+  border-radius: 500rem;
+  border: none; }
+
+.shadow:hover {
+  position: relative;
+  box-shadow: 2px 1px 2px 0 rgba(0, 0, 0, 0.025), 4px 2px 4px 0 rgba(0, 0, 0, 0.025), 8px 4px 8px 0 rgba(0, 0, 0, 0.05), 16px 8px 16px 0 rgba(0, 0, 0, 0.05), 32px 16px 32px 0 rgba(0, 0, 0, 0.05), 64px 32px 64px 0 rgba(0, 0, 0, 0.05);
+  z-index: 0;
+  transition: box-shadow .5s; }
+
+.shadow:hover::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  box-shadow: -2px -1px 2px 0 rgba(255, 255, 255, 0.4), -4px -2px 4px 0 rgba(255, 255, 255, 0.4), -8px -4px 8px 0 rgba(255, 255, 255, 0.4), -16px -8px 16px 0 rgba(255, 255, 255, 0.4), -32px -16px 32px 0 rgba(255, 255, 255, 0.4), -64px -32px 64px 0 rgba(255, 255, 255, 0.4);
+  z-index: -1;
+  transition: box-shadow .5s; }
+
+.shadow {
+  position: relative;
+  box-shadow: 4px 2px 4px 0 rgba(0, 0, 0, 0.015), 8px 4px 8px 0 rgba(0, 0, 0, 0.035), 16px 8px 16px 0 rgba(0, 0, 0, 0.065);
+  z-index: 0;
+  cursor: pointer;
+  transition: box-shadow .5s; }
+
+.shadow::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  box-shadow: -4px -2px 4px 0 rgba(255, 255, 255, 0.05), -8px -4px 8px 0 rgba(255, 255, 255, 0.15), -16px -8px 16px 0 rgba(255, 255, 255, 0.25);
+  z-index: -1;
+  transition: box-shadow, .5s; }
 
 `;
 export default smlightcomponent;
