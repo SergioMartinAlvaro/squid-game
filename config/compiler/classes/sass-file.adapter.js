@@ -48,10 +48,23 @@ module.exports = class SassFileAdapter {
         return this._fileHandler.validateType(fileType, fileName);
     }
 
+    getConfigRoute() {
+        let existsRoute = fs.existsSync(path.resolve(__dirname, '../aux/exampleFile.txt'));
+        let existsRouteWin = fs.existsSync(path.resolve(__dirname, '..\\aux\\exampleFile.txt'));
+        if(existsRoute) {
+            console.log("SISTEMA OPERATIVO UNIX")
+            return '../aux/exampleFile.txt';
+        } else if(existsRouteWin) {
+            console.log("SISTEMA OPERATIVO WINDOWS")
+           return '..\\aux\\exampleFile.txt'
+        } else {
+            return '../aux/exampleFile.txt';
+        }
+    }
+
     writeFileByTemplate(css, filePath) {
         console.log("DIRECTORIO")
-        console.log(__dirname);
-        fs.readFile(path.resolve(__dirname, '../aux/exampleFile.txt'), (err, content) => {
+        fs.readFile(path.resolve(__dirname, this.getConfigRoute()), (err, content) => {
             let data = content.toString();
             let fileName = this.getFileName(filePath);
             data = data.replace('#{className}', fileName.replace('-', '').replace('.', ''));
