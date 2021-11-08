@@ -95,11 +95,11 @@ export class SmLight extends LitElement {
     recalculateTime(isUp) {
         if (isUp) {
             if (this.timeGreen > 2000) {
-                this.timeGreen -= 1000;
+                this.timeGreen -= 100;
             }
         } else {
             if (this.timeGreen < 10000) {
-                this.timeGreen += 1000;
+                this.timeGreen += 100;
             }
         }
 

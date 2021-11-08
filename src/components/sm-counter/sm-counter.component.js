@@ -34,7 +34,6 @@ export class SmCounter extends LitElement {
         this.message = '';
 
         window.EE.on('sumStep', () => {
-            console.log(this.count);
             this.count++;
             window.EE.emit('recalculateTime', true)
         });
