@@ -119,7 +119,6 @@ export class SmLight extends LitElement {
 
     startLight() {
         this.refreshInterval = setInterval(() => {
-            console.log(this.timeToChangeInMs)
             window.EE.emit('changeLight');
         }, this.timeToChangeInMs);
     }

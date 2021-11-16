@@ -8,7 +8,6 @@ import { store } from "../../../redux/store";
 class MainView extends connect(store)(BaseView) {
 
     static get styles() {
-        console.log(mainview);
         return css `${unsafeCSS(mainview)}`;
     }
 

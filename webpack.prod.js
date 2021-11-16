@@ -48,14 +48,19 @@ module.exports = {
                 }
             },
             {
+                test: /\.html$/,
+                use: {
+                    loader: 'html-loader'
+                }
+            },
+            {
                 test: /\.(woff|woff2|eot|ttf|otf)$/i,
                 type: 'asset/resource',
             },
             {
-                test: /\.scss$/,
+                test: /\.(scss)$/,
                 use: [
                     'style-loader',
-                    'css-loader',
                     'sass-loader'
                 ]
             }

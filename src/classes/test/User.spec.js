@@ -4,7 +4,7 @@ const { default: User } = require("../User");
 const { default: userStorage } = require("../UserStorage");
 let user = null;
 describe('User Class functional tests', () => {
-    beforeAll(() => {})
+    beforeAll(() => {});
     test('User can be created with given name', () => {
         user = new User('Francisco');
         expect(user.getName()).toBe('Francisco');
